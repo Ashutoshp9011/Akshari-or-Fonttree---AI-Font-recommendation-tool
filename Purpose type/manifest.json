@@ -1,0 +1,17 @@
+{
+  "manifest_version": 3,
+  "name": "Design Type Detector",
+  "version": "1.1",
+  "description": "Detects Canva design type (e.g., Presentation, Poster, A4) only for active tab.",
+  "permissions": ["tabs"],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": "icon.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://www.canva.com/design/*"],
+      "js": ["content.js"]
+    }
+  ]
+}
