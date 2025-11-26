@@ -1,0 +1,35 @@
+{
+  "manifest_version": 3,
+  "name": "Canva Font Recommendation Tool",
+  "version": "3.0",
+  "description": "Analyzes Canva designs in real-time to provide AI-powered font recommendations.",
+  "permissions": [
+    "tabs",
+    "storage"
+  ],
+  "action": {
+    "default_icon": "icon.png"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://www.canva.com/design/*"
+      ],
+      "js": [
+        "content.js",
+        "floating-popup.js"
+      ],
+      "css": [
+        "floating-popup.css"
+      ],
+      "run_at": "document_idle"
+    }
+  ],
+  "host_permissions": [
+    "*://www.canva.com/*",
+    "http://localhost:3000/*"
+  ]
+}
